@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Tanggal</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            color: white;
+            background-color: rgb(0, 159, 106);
+            border: none;
+            cursor: pointer;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        span{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Cari Tanggal</h3>
+        <input type="date" id="searchDate" />
+        <button onclick="displayDate()">Submit</button>
+
+        <div class="output" id="outputText"><p>Tidak mencari data...</p></div>
+    </div>
+
+    <script>
+        function displayDate() {
+            let inputDate = document.getElementById("searchDate").value;
+            if (inputDate) {
+                document.getElementById("outputText").innerHTML = `Mencari data tanggal: <span>${inputDate}...</span>`;
+            } else {
+                document.getElementById("outputText").innerHTML = `Silakan pilih tanggal terlebih dahulu.`;
+            }
+        }
+    </script>
+
+</body>
+</html>

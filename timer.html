@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            border: 2px solid black;
+            padding: 10px;
+            width: 200px;
+            margin: auto;
+            margin-top: 50px;
+        }
+        .btn {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+        button {
+            margin: 3px;
+            color: white;
+            background-color: rgb(0, 159, 106);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        #hitung {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Hitung Mundur</h3>
+        <div id="hitung"><p>Waktu Habis</p></div>
+        <div class="btn">
+            <button onclick="start()">Mulai</button>
+            <button onclick="stop()">Berhenti</button>
+        </div>
+    </div>
+
+    <script>
+        let countdown;
+        let interval;
+
+        function start() {
+            i = 5;
+            document.getElementById("hitung").innerHTML = `<p>Hitung mundur: ${i}</p>`;
+
+            interval = setInterval(function() {
+                i--;
+                document.getElementById("hitung").innerHTML = `<p>Hitung mundur: ${i}</p>`;
+
+                if (i <= 0) {
+                    let text = document.getElementById("hitung");
+                    clearInterval(interval);
+                    text.innerHTML = `<p>Waktu Habis</p>`;
+                    text.style.color = 'red';
+                }
+            }, 1000);
+        }
+
+        function stop() {
+            clearInterval(interval);
+            document.getElementById("hitung").innerHTML = `<p>Hitungan Dihentikan</p>`;
+        }
+    </script>
+</body>
+</html>
